@@ -1,0 +1,25 @@
+{
+  "name": "test-hapi",
+  "version": "1.0.0",
+  "description": "test hapi and github action",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config index.js",
+    "db:init": "prisma generate",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Singebob",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5",
+    "@prisma/client": "^2.27.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12",
+    "prisma": "^2.27.0"
+  }
+}
