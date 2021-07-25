@@ -1,9 +1,16 @@
-import context from "./../context.js";
+import user from "./../controller/user.js"
+import userController from "./../controller/user.js"
 
 const findUsers = {
   method: 'GET',
   path: '/users',
-  handler: () => context.prisma.user.findMany(),
+  handler: userController.findUsers,
 }
 
-export default [findUsers]
+const createUser = {
+  method: 'POST',
+  path: '/users',
+  handler: userController.createUser,
+}
+
+export default [findUsers, createUser]

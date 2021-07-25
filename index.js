@@ -1,4 +1,5 @@
 import Hapi from "@hapi/hapi"
+import laabr from "laabr"
 import context from "./src/context.js"
 import routeApp from "./src/routes/index.js";
 
@@ -9,9 +10,11 @@ const init = async () => {
         host: process.env.HOST
     });
 
+    await server.register({
+        plugin: laabr
+    })
     await server.start();
     server.route(routeApp)
-    console.log('Server running on %s', server.info.uri);
 };
 
 process.on('unhandledRejection', (err) => {
